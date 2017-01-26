@@ -12,6 +12,7 @@
 		95E8552D1E39EA3E005A79FC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95E8552B1E39EA3E005A79FC /* Main.storyboard */; };
 		95E8552F1E39EA3E005A79FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95E8552E1E39EA3E005A79FC /* Assets.xcassets */; };
 		95E855321E39EA3E005A79FC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95E855301E39EA3E005A79FC /* LaunchScreen.storyboard */; };
+		95E8553B1E39EA75005A79FC /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95E8553A1E39EA75005A79FC /* SpriteKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		95E8552E1E39EA3E005A79FC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		95E855311E39EA3E005A79FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		95E855331E39EA3E005A79FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		95E8553A1E39EA75005A79FC /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +31,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95E8553B1E39EA75005A79FC /* SpriteKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +43,7 @@
 			children = (
 				95E855261E39EA3E005A79FC /* FlappyBird */,
 				95E855251E39EA3E005A79FC /* Products */,
+				95E855391E39EA74005A79FC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -62,6 +66,14 @@
 				95E855331E39EA3E005A79FC /* Info.plist */,
 			);
 			path = FlappyBird;
+			sourceTree = "<group>";
+		};
+		95E855391E39EA74005A79FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				95E8553A1E39EA75005A79FC /* SpriteKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
