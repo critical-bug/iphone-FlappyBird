@@ -13,6 +13,7 @@
 		95E8552F1E39EA3E005A79FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95E8552E1E39EA3E005A79FC /* Assets.xcassets */; };
 		95E855321E39EA3E005A79FC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95E855301E39EA3E005A79FC /* LaunchScreen.storyboard */; };
 		95E8553B1E39EA75005A79FC /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95E8553A1E39EA75005A79FC /* SpriteKit.framework */; };
+		95E8553D1E39EF20005A79FC /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E8553C1E39EF20005A79FC /* GameScene.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		95E855311E39EA3E005A79FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		95E855331E39EA3E005A79FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		95E8553A1E39EA75005A79FC /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
+		95E8553C1E39EF20005A79FC /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 				95E8552E1E39EA3E005A79FC /* Assets.xcassets */,
 				95E855301E39EA3E005A79FC /* LaunchScreen.storyboard */,
 				95E855331E39EA3E005A79FC /* Info.plist */,
+				95E8553C1E39EF20005A79FC /* GameScene.swift */,
 			);
 			path = FlappyBird;
 			sourceTree = "<group>";
@@ -149,6 +152,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95E8553D1E39EF20005A79FC /* GameScene.swift in Sources */,
 				95E8552A1E39EA3E005A79FC /* ViewController.swift in Sources */,
 				95E855281E39EA3E005A79FC /* AppDelegate.swift in Sources */,
 			);
