@@ -166,4 +166,11 @@ class GameScene: SKScene {
 
 		addChild(bird)
 	}
+
+	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+		// これをいじると操作感（慣性？）が変わる
+		bird.physicsBody?.velocity = CGVector.zero
+
+		bird.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 15))
+	}
 }
