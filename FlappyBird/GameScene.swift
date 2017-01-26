@@ -15,6 +15,8 @@ class GameScene: SKScene {
 	var bird:SKSpriteNode!
 
 	override func didMove(to view: SKView) {
+		physicsWorld.gravity = CGVector(dx: 0.0, dy: -4.0)
+
 		backgroundColor = UIColor(colorLiteralRed: 0.15, green: 0.75, blue: 0.90, alpha: 1)
 
 		scrollNode = SKNode()
@@ -41,8 +43,10 @@ class GameScene: SKScene {
 
 			sprite.position = CGPoint(x: i * sprite.size.width, y: groundTexture.size().height / 2)
 
-			sprite.run(repeatScrollGround)
+			sprite.physicsBody = SKPhysicsBody(rectangleOf: groundTexture.size())
+			sprite.physicsBody?.isDynamic = false
 
+			sprite.run(repeatScrollGround)
 			scrollNode.addChild(sprite)
 		}
 
@@ -120,10 +124,14 @@ class GameScene: SKScene {
 
 			let under = SKSpriteNode(texture: wallTexture)
 			under.position = CGPoint(x: 0.0, y: under_wall_y)
+			under.physicsBody = SKPhysicsBody(rectangleOf: wallTexture.size())
+			under.physicsBody?.isDynamic = false
 			wall.addChild(under)
 
 			let upper = SKSpriteNode(texture: wallTexture)
 			upper.position = CGPoint(x: 0.0, y: under_wall_y + wallTexture.size().height + slit_length)
+			upper.physicsBody = SKPhysicsBody(rectangleOf: wallTexture.size())
+			upper.physicsBody?.isDynamic = false
 			wall.addChild(upper)
 
 			wall.run(wallAnimation)
@@ -146,18 +154,16 @@ class GameScene: SKScene {
 		let birdTextureB = SKTexture(imageNamed: "bird_b")
 		birdTextureB.filteringMode = SKTextureFilteringMode.linear
 
-		// 2種類のテクスチャを交互に変更するアニメーションを作成
 		let texuresAnimation = SKAction.animate(with: [birdTextureA, birdTextureB], timePerFrame: 0.2)
 		let flap = SKAction.repeatForever(texuresAnimation)
 
-		// スプライトを作成
 		bird = SKSpriteNode(texture: birdTextureA)
 		bird.position = CGPoint(x: self.frame.size.width * 0.2, y:self.frame.size.height * 0.7)
 
-		// アニメーションを設定
+		bird.physicsBody = SKPhysicsBody(circleOfRadius: bird.size.height / 2.0)
+
 		bird.run(flap)
 
-		// スプライトを追加する
 		addChild(bird)
 	}
 }
