@@ -21,6 +21,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 	let scoreCategory: UInt32 = 1 << 3      // 0...01000
 
 	var score = 0
+	var scoreLabelNode:SKLabelNode!
+	var bestScoreLabelNode:SKLabelNode!
+	let userDefaults: UserDefaults = .standard
 
 	override func didMove(to view: SKView) {
 		physicsWorld.gravity = CGVector(dx: 0.0, dy: -4.0)
@@ -63,6 +66,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 		setupCloud()
 		setupWall()
 		setupBird()
+		setupScoreLabel()
 	}
 
 	func setupCloud() {
@@ -196,6 +200,27 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 		addChild(bird)
 	}
 
+	func setupScoreLabel() {
+		score = 0
+		scoreLabelNode = SKLabelNode()
+		scoreLabelNode.fontColor = UIColor.black
+		scoreLabelNode.position = CGPoint(x: 10, y: self.frame.size.height - 30)
+		scoreLabelNode.zPosition = 100 // 一番手前に表示する
+		scoreLabelNode.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.left
+		scoreLabelNode.text = "Score:\(score)"
+		self.addChild(scoreLabelNode)
+
+		bestScoreLabelNode = SKLabelNode()
+		bestScoreLabelNode.fontColor = UIColor.black
+		bestScoreLabelNode.position = CGPoint(x: 10, y: self.frame.size.height - 60)
+		bestScoreLabelNode.zPosition = 100 // 一番手前に表示する
+		bestScoreLabelNode.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.left
+
+		let bestScore = userDefaults.integer(forKey: "BEST")
+		bestScoreLabelNode.text = "Best Score:\(bestScore)"
+		self.addChild(bestScoreLabelNode)
+	}
+
 	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
 		if scrollNode.speed > 0 {
 			// これをいじると操作感（慣性？）が変わる
@@ -218,6 +243,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 			(contact.bodyB.categoryBitMask & scoreCategory) == scoreCategory {
 			print("ScoreUp")
 			score += 1
+			scoreLabelNode.text = "Score:\(score)"
+			if score > userDefaults.integer(forKey: "BEST") {
+				bestScoreLabelNode.text = "Best Score:\(score)"
+				userDefaults.set(score, forKey: "BEST")
+				userDefaults.synchronize()
+			}
 		} else {
 			// 壁か地面と衝突した
 			print("GameOver")
@@ -235,6 +266,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
 	func restart() {
 		score = 0
+		scoreLabelNode.text = "Score:\(score)"
 
 		bird.position = CGPoint(x: self.frame.size.width * 0.2, y:self.frame.size.height * 0.7)
 		bird.physicsBody?.velocity = CGVector.zero
