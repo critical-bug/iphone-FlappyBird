@@ -323,11 +323,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 			print("item got A")
 			itemScore += 1
 			itemScoreLabelNode.text = "Item Score:\(itemScore)"
+			let action = SKAction.playSoundFileNamed("magic-status-cure2.mp3", waitForCompletion: false)
+			self.run(action, withKey: "test")
 		} else if (contact.bodyB.categoryBitMask & itemCategory) == itemCategory {
 			contact.bodyB.node?.removeFromParent()
 			print("item got B")
 			itemScore += 1
 			itemScoreLabelNode.text = "Item Score:\(itemScore)"
+			let action = SKAction.playSoundFileNamed("magic-status-cure2.mp3", waitForCompletion: false)
+			self.run(action, withKey: "test")
 		} else {
 			// 壁か地面と衝突した
 			print("GameOver")

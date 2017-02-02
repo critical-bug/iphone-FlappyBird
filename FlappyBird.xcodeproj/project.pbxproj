@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9504D3941E433C6E003228E5 /* magic-status-cure2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9504D3931E433C6E003228E5 /* magic-status-cure2.mp3 */; };
 		95E855281E39EA3E005A79FC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E855271E39EA3E005A79FC /* AppDelegate.swift */; };
 		95E8552A1E39EA3E005A79FC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E855291E39EA3E005A79FC /* ViewController.swift */; };
 		95E8552D1E39EA3E005A79FC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95E8552B1E39EA3E005A79FC /* Main.storyboard */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9504D3931E433C6E003228E5 /* magic-status-cure2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "magic-status-cure2.mp3"; sourceTree = "<group>"; };
 		95E855241E39EA3E005A79FC /* FlappyBird.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlappyBird.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95E855271E39EA3E005A79FC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		95E855291E39EA3E005A79FC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -67,6 +69,7 @@
 				95E855301E39EA3E005A79FC /* LaunchScreen.storyboard */,
 				95E855331E39EA3E005A79FC /* Info.plist */,
 				95E8553C1E39EF20005A79FC /* GameScene.swift */,
+				9504D3931E433C6E003228E5 /* magic-status-cure2.mp3 */,
 			);
 			path = FlappyBird;
 			sourceTree = "<group>";
@@ -139,6 +142,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9504D3941E433C6E003228E5 /* magic-status-cure2.mp3 in Resources */,
 				95E855321E39EA3E005A79FC /* LaunchScreen.storyboard in Resources */,
 				95E8552F1E39EA3E005A79FC /* Assets.xcassets in Resources */,
 				95E8552D1E39EA3E005A79FC /* Main.storyboard in Resources */,
@@ -316,6 +320,7 @@
 				95E855381E39EA3E005A79FC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
