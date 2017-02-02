@@ -24,6 +24,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 	var score = 0
 	var scoreLabelNode:SKLabelNode!
 	var bestScoreLabelNode:SKLabelNode!
+	var itemScore = 0
+	var itemScoreLabelNode:SKLabelNode!
 	let userDefaults: UserDefaults = .standard
 
 	override func didMove(to view: SKView) {
@@ -277,6 +279,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 		let bestScore = userDefaults.integer(forKey: "BEST")
 		bestScoreLabelNode.text = "Best Score:\(bestScore)"
 		self.addChild(bestScoreLabelNode)
+
+		itemScore = 0
+		itemScoreLabelNode = SKLabelNode()
+		itemScoreLabelNode.fontColor = UIColor.black
+		itemScoreLabelNode.position = CGPoint(x: 10, y: self.frame.size.height - 90)
+		itemScoreLabelNode.zPosition = 100
+		itemScoreLabelNode.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.left
+		itemScoreLabelNode.text = "Item Score:\(itemScore)"
+		self.addChild(itemScoreLabelNode)
 	}
 
 	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -309,13 +320,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 			}
 		} else if (contact.bodyA.categoryBitMask & itemCategory) == itemCategory {
 			contact.bodyA.node?.removeFromParent()
-
+			print("item got A")
+			itemScore += 1
+			itemScoreLabelNode.text = "Item Score:\(itemScore)"
 		} else if (contact.bodyB.categoryBitMask & itemCategory) == itemCategory {
 			contact.bodyB.node?.removeFromParent()
-			print("item got")
-			// 音
-			// item score ラベル
-			// 消す
+			print("item got B")
+			itemScore += 1
+			itemScoreLabelNode.text = "Item Score:\(itemScore)"
 		} else {
 			// 壁か地面と衝突した
 			print("GameOver")
@@ -334,6 +346,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 	func restart() {
 		score = 0
 		scoreLabelNode.text = "Score:\(score)"
+		itemScore = 0
+		itemScoreLabelNode.text = "Item Score:\(itemScore)"
 
 		bird.position = CGPoint(x: self.frame.size.width * 0.2, y:self.frame.size.height * 0.7)
 		bird.physicsBody?.velocity = CGVector.zero
