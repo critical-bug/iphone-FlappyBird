@@ -138,7 +138,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 			let under_wall_y = CGFloat(under_wall_lowest_y + random_y)
 
 			// キャラが通り抜ける隙間の長さ
-			let slit_length = self.frame.size.height / 6
+			let slit_length: CGFloat = 3 * SKTexture(imageNamed: "bird_a").size().height
 
 			let under = SKSpriteNode(texture: wallTexture)
 			under.position = CGPoint(x: 0.0, y: under_wall_y)
